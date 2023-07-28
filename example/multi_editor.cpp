@@ -1,7 +1,7 @@
 #include "node_editor.h"
 #include <imnodes.h>
 #include <imgui.h>
-#include <SDL_scancode.h>
+#include <SDL2/SDL_scancode.h>
 
 #include <algorithm>
 #include <vector>
@@ -42,7 +42,7 @@ void show_editor(const char* editor_name, Editor& editor)
     ImNodes::BeginNodeEditor();
 
     if (ImGui::IsWindowFocused(ImGuiFocusedFlags_RootAndChildWindows) &&
-        ImNodes::IsEditorHovered() && ImGui::IsKeyReleased(SDL_SCANCODE_A))
+        ImNodes::IsEditorHovered() && ImGui::IsKeyReleased((ImGuiKey)SDL_SCANCODE_A))
     {
         const int node_id = ++editor.current_id;
         ImNodes::SetNodeScreenSpacePos(node_id, ImGui::GetMousePos());
@@ -97,10 +97,8 @@ void show_editor(const char* editor_name, Editor& editor)
         int link_id;
         if (ImNodes::IsLinkDestroyed(&link_id))
         {
-            auto iter = std::find_if(
-                editor.links.begin(), editor.links.end(), [link_id](const Link& link) -> bool {
-                    return link.id == link_id;
-                });
+            auto iter = std::find_if(editor.links.begin(), editor.links.end(), 
+                                     [link_id](const Link& link) { return link.id == link_id; });
             assert(iter != editor.links.end());
             editor.links.erase(iter);
         }
