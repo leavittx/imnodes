@@ -5,7 +5,7 @@ project(imnodes)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-find_package(imgui CONFIG REQUIRED)
+
 find_package(SDL2 CONFIG REQUIRED)
 
 if(MSVC)
@@ -23,7 +23,13 @@ target_sources(imnodes PRIVATE
     imnodes_internal.h
     imnodes.cpp)
 target_include_directories(imnodes PUBLIC ${CMAKE_SOURCE_DIR})
-target_link_libraries(imnodes PUBLIC imgui::imgui)
+target_include_directories(imnodes PUBLIC D:\\projects\\Interview\\nova\\PipelineProcessor\\imgui-1.89.2\\misc\\single_file)
+target_include_directories(imnodes PUBLIC D:\\projects\\Interview\\nova\\PipelineProcessor\\imgui-1.89.2)
+target_include_directories(imnodes PUBLIC D:\\projects\\Interview\\nova\\PipelineProcessor\\imgui-1.89.2\\backends)
+target_include_directories(imnodes PUBLIC D:\\projects\\Interview\\nova\\PipelineProcessor\\SDL2-devel-2.26.2-VC\\SDL2-2.26.2\\include)
+
+
+target_link_libraries(imnodes PUBLIC)
 
 # Example projects
 
@@ -39,6 +45,8 @@ elseif(MSVC)
 else()
     target_link_libraries(colornode X11 Xext GL)
 endif()
+target_include_directories(colornode PUBLIC D:\\projects\\Interview\\nova\\PipelineProcessor\\SDL2-devel-2.26.2-VC\\SDL2-2.26.2\\include)
+
 
 add_executable(multieditor
     ${CMAKE_SOURCE_DIR}/imnodes.cpp 
@@ -52,6 +60,7 @@ elseif(MSVC)
 else()
     target_link_libraries(multieditor X11 Xext GL)
 endif()
+target_include_directories(multieditor PUBLIC D:\\projects\\Interview\\nova\\PipelineProcessor\\SDL2-devel-2.26.2-VC\\SDL2-2.26.2\\include)
 
 add_executable(saveload
     ${CMAKE_SOURCE_DIR}/imnodes.cpp
@@ -65,6 +74,7 @@ elseif(MSVC)
 else()
     target_link_libraries(saveload X11 Xext GL)
 endif()
+target_include_directories(saveload PUBLIC D:\\projects\\Interview\\nova\\PipelineProcessor\\SDL2-devel-2.26.2-VC\\SDL2-2.26.2\\include)
 
 add_executable(hello
     ${CMAKE_SOURCE_DIR}/imnodes.cpp
@@ -78,3 +88,4 @@ elseif(MSVC)
 else()
     target_link_libraries(hello X11 Xext GL)
 endif()
+target_include_directories(hello PUBLIC D:\\projects\\Interview\\nova\\PipelineProcessor\\SDL2-devel-2.26.2-VC\\SDL2-2.26.2\\include)
