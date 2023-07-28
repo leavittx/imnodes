@@ -576,9 +576,9 @@ static void DrawListTransformChannel(
 
         if (idxCount == 0) continue;
 
-        for (int i = 0; i < idxCount; ++i)
+        for (int j = 0; j < idxCount; ++j)
         {
-            int idx = idxRead[indexOffset + i];
+            int idx = idxRead[indexOffset + j];
             indexMap.set(idx);
             if (minIndex > idx) minIndex = idx;
             if (maxIndex < idx) maxIndex = idx;
@@ -1422,9 +1422,9 @@ void DrawGrid(ImNodesEditorContext& editor, const ImRect& rect)
     const ImVec2& max = rect.Max;
     const ImU32 color = GImNodes->Style.Colors[ImNodesCol_GridLine];
     const float spacing = GImNodes->Style.GridSpacing;
-    ImU32        line_color = GImNodes->Style.Colors[ImNodesCol_GridLine];
-    ImU32        line_color_prim = GImNodes->Style.Colors[ImNodesCol_GridLinePrimary];
-    bool         draw_primary = GImNodes->Style.Flags & ImNodesStyleFlags_GridLinesPrimary;
+    //ImU32        line_color = GImNodes->Style.Colors[ImNodesCol_GridLine];
+    //ImU32        line_color_prim = GImNodes->Style.Colors[ImNodesCol_GridLinePrimary];
+    //bool         draw_primary = GImNodes->Style.Flags & ImNodesStyleFlags_GridLinesPrimary;
     const float thickness = 1.0f / editor.Zoom;
     ImDrawList* draw_list = GImNodes->CanvasDrawList;
 

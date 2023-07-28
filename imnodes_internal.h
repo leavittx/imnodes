@@ -320,6 +320,7 @@ struct ImNodesContext
     ImVector<int> OccludedPinIndices;
 
     // Canvas extents
+    ImVec2 CanvasOriginScreenSpace;
     ImRect CanvasRectScreenSpace;
 
     // Debug helpers
